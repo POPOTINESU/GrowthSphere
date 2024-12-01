@@ -6,6 +6,6 @@ type User struct {
 	ID          uuid.UUID
 	Email       Email
 	Password    Password
-	Provider    string
-	Permissions string
+	Provider    Provider
+	Permissions Permission
 }
