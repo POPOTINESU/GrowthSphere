@@ -1,0 +1,27 @@
+@startuml
+title FolderConfigurationDiagram
+skinparam TitleFontSize 12
+
+salt
+
+{
+  {T
+    + GrowthSphere
+      ++ go     | golang directory
+        +++ services | Each services
+          ++++ service1
+            +++++ ent
+              ++++++ migrations
+            +++++ domain 
+          ++++ service2
+            +++++ ent
+              ++++++ migrations
+            +++++ domain
+        +++ build
+          ++++ server
+          +++++ main.go
+      ++ typescript
+  }
+}
+
+@enduml
