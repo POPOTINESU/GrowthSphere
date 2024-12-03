@@ -3,6 +3,7 @@ package domain {
     entity UserSecurity {
         + user_id : uuid (FK → User.userId)
         --
+        * provider : enum
         * password_hash : string
         * password_updated_at : timestamp
         * last_login_at : timestamp

@@ -5,7 +5,6 @@ package domain {
         --
         * username : string (unique)
         * account_name : string
-        * provider : enum
         * updated_at : timestamp
     }
 
