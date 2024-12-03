@@ -1,0 +1,78 @@
+@startuml
+package domain {
+    entity User {
+        + userId : UUID v7 (PK)
+        --
+        * username : string (unique)
+        * account_name : string
+        * provider : enum
+        * updated_at : timestamp
+    }
+
+    entity UserProfile {
+        + profile_id : uuid (PK)
+        --
+        * user_id : uuid (FK)
+        * user_icon_url : string
+        * home_image_url : string
+        * introduction : string
+        * cover_image_url : string
+    }
+
+    User ||--|| UserProfile
+}
+
+package usecase {
+    interface UserUseCase {
+        + CreateUser(user: User, profile: UserProfile)
+    }
+
+    class UserUseCaseImpl {
+        + CreateUser(user: User, profile: UserProfile)
+    }
+}
+
+package service {
+    interface UserService {
+        + createUser(user: User)
+    }
+
+    class UserServiceImpl {
+        + createUser(user: User)
+    }
+}
+
+package repository {
+    interface UserRepository {
+        + create(user: User) : void
+    }
+
+    interface UserProfileRepository {
+        + create(profile: UserProfile) : void
+        + findByUserId(userId: UUID) : UserProfile
+    }
+
+    class UserRepositoryImpl {
+        + create(user: User) : void
+    }
+
+    class UserProfileRepositoryImpl {
+        + create(profile: UserProfile) : void
+        + findByUserId(userId: UUID) : UserProfile
+    }
+}
+
+UserUseCaseImpl ..|> UserUseCase
+UserUseCaseImpl --> UserService : Depends on
+UserUseCaseImpl --> UserRepository : Depends on
+UserUseCaseImpl --> UserProfileRepository : Depends on
+
+UserServiceImpl ..|> UserService
+UserServiceImpl --> User : Operates on
+
+UserRepositoryImpl ..|> UserRepository
+UserProfileRepositoryImpl ..|> UserProfileRepository
+
+UserRepository --> User : Persists
+UserProfileRepository --> UserProfile : Persists
+@enduml

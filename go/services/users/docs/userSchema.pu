@@ -19,14 +19,6 @@ entity "user_profile" as UserProfile {
     * cover_image_url : string
 }
 
-entity "user_security" as UserSecurity {
-    + user_id : uuid (FK → users.user_id)
-    --
-    * password_hash : string
-    * password_updated_at : timestamp
-    * last_login_at : timestamp
-}
 
 User ||--|| UserProfile
-User ||--|| UserSecurity
 @enduml
