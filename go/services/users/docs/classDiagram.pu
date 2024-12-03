@@ -1,5 +1,5 @@
 @startuml
-package domain {
+package entity {
     entity User {
         + userId : UUID v7 (PK)
         --
