@@ -37,3 +37,19 @@ func NewUser(username string, accountName string) (*User, error) {
 		updatedAt:   time.Now(),
 	}, nil
 }
+
+func (u *User) UserId() uuid.UUID {
+	return u.userID
+}
+
+func (u *User) Username() valueobject.Username {
+	return u.username
+}
+
+func (u *User) AccountName() valueobject.AccountName {
+	return u.accountName
+}
+
+func (u *User) UpdatedAt() time.Time {
+	return u.updatedAt
+}
