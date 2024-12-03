@@ -1,46 +1,45 @@
 package valueobject
 
 import (
-	valueobject "GROWTHSPHERE/services/users/domain/valueObject"
+	valueobject "GROWTHSPHERE/services/users/internal/domain/valueObject"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
 )
 
-func TestNewUsername(t *testing.T) {
+func TestNewAccountName(t *testing.T) {
 	tests := []struct {
 		name         string
-		username     string
+		accountName  string
 		want         string
 		expectErr    bool
 		expectErrMsg string
 	}{
 		{
-			name:         "Happy Path: correct username",
-			username:     "test_user",
-			want:         "test_user",
+			name:         "Happy Path: correct account name",
+			accountName:  "test_account_name",
+			want:         "test_account_name",
 			expectErr:    false,
 			expectErrMsg: "",
 		},
 		{
-			name:         "Negative: user name is empty",
-			username:     "",
+			name:         "Negative: account name is empty",
+			accountName:  "",
 			want:         "",
 			expectErr:    true,
-			expectErrMsg: "username can not be empty",
+			expectErrMsg: "account name can not be empty",
 		},
 		{
 			name:         "Negative: username exceeds max length",
-			username:     "this_username_is_way_too_long",
-			want:         "",
+			accountName:  "this_account_name_is_way_too_long_therefore_account_name_is_not_valid",
 			expectErr:    true,
-			expectErrMsg: "username must be at most 20 characters",
+			expectErrMsg: "account name must be at most 30 characters",
 		},
 	}
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			result, err := valueobject.NewUsername(tt.username)
+			result, err := valueobject.NewAccountName(tt.accountName)
 
 			if tt.expectErr {
 				assert.Error(t, err)

@@ -1,7 +1,7 @@
 package entity
 
 import (
-	"GROWTHSPHERE/services/users/domain/entity"
+	"GROWTHSPHERE/services/users/internal/domain/entity"
 	"testing"
 	"time"
 
