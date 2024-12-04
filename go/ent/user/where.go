@@ -3,7 +3,7 @@
 package user
 
 import (
-	"GROWTHSPHERE/services/users/internal/infrastructure/database/ent/predicate"
+	"GROWTHSPHERE/ent/predicate"
 	"time"
 
 	"entgo.io/ent/dialect/sql"

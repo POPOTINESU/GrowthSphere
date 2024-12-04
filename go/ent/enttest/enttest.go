@@ -5,11 +5,11 @@ package enttest
 import (
 	"context"
 
-	"GROWTHSPHERE/services/users/internal/infrastructure/database/ent"
+	"GROWTHSPHERE/ent"
 	// required by schema hooks.
-	_ "GROWTHSPHERE/services/users/internal/infrastructure/database/ent/runtime"
+	_ "GROWTHSPHERE/ent/runtime"
 
-	"GROWTHSPHERE/services/users/internal/infrastructure/database/ent/migrate"
+	"GROWTHSPHERE/ent/migrate"
 
 	"entgo.io/ent/dialect/sql/schema"
 )

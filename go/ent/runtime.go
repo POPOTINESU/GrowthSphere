@@ -3,8 +3,8 @@
 package ent
 
 import (
-	"GROWTHSPHERE/services/users/internal/infrastructure/database/ent/schema"
-	"GROWTHSPHERE/services/users/internal/infrastructure/database/ent/user"
+	"GROWTHSPHERE/ent/schema"
+	"GROWTHSPHERE/ent/user"
 	"time"
 
 	"github.com/google/uuid"

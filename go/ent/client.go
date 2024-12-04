@@ -9,9 +9,9 @@ import (
 	"log"
 	"reflect"
 
-	"GROWTHSPHERE/services/users/internal/infrastructure/database/ent/migrate"
+	"GROWTHSPHERE/ent/migrate"
 
-	"GROWTHSPHERE/services/users/internal/infrastructure/database/ent/user"
+	"GROWTHSPHERE/ent/user"
 
 	"entgo.io/ent"
 	"entgo.io/ent/dialect"

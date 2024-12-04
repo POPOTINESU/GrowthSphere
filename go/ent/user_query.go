@@ -3,8 +3,8 @@
 package ent
 
 import (
-	"GROWTHSPHERE/services/users/internal/infrastructure/database/ent/predicate"
-	"GROWTHSPHERE/services/users/internal/infrastructure/database/ent/user"
+	"GROWTHSPHERE/ent/predicate"
+	"GROWTHSPHERE/ent/user"
 	"context"
 	"fmt"
 	"math"

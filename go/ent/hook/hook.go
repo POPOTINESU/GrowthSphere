@@ -3,7 +3,7 @@
 package hook
 
 import (
-	"GROWTHSPHERE/services/users/internal/infrastructure/database/ent"
+	"GROWTHSPHERE/ent"
 	"context"
 	"fmt"
 )

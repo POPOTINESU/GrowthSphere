@@ -3,7 +3,7 @@
 package ent
 
 import (
-	"GROWTHSPHERE/services/users/internal/infrastructure/database/ent/user"
+	"GROWTHSPHERE/ent/user"
 	"fmt"
 	"strings"
 	"time"
