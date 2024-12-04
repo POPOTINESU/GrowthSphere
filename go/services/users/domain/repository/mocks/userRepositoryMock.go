@@ -10,7 +10,7 @@
 package mocks
 
 import (
-	entity "GROWTHSPHERE/services/users/internal/domain/entity"
+	"GROWTHSPHERE/services/users/domain/entity"
 	context "context"
 	reflect "reflect"
 

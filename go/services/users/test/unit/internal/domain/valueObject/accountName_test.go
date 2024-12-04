@@ -1,7 +1,7 @@
 package valueobject
 
 import (
-	valueobject "GROWTHSPHERE/services/users/internal/domain/valueObject"
+	valueobject "GROWTHSPHERE/services/users/domain/valueObject"
 	"testing"
 
 	"github.com/stretchr/testify/assert"

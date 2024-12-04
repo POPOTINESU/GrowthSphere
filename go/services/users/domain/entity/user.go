@@ -1,7 +1,7 @@
 package entity
 
 import (
-	valueobject "GROWTHSPHERE/services/users/internal/domain/valueObject"
+	valueobject "GROWTHSPHERE/services/users/domain/valueObject"
 	"time"
 
 	"github.com/google/uuid"
