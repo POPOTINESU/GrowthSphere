@@ -2,7 +2,10 @@ module GROWTHSPHERE
 
 go 1.23.3
 
-require github.com/google/uuid v1.6.0
+require (
+	github.com/google/uuid v1.6.0
+	go.uber.org/mock v0.5.0
+)
 
 require (
 	ariga.io/atlas v0.19.1-0.20240203083654-5948b60a8e43 // indirect
