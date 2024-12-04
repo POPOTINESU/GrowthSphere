@@ -7,11 +7,12 @@ type Username struct {
 }
 
 func NewUsername(username string) (Username, error) {
+	MAX_USER_NAME := 20
 	if len(username) == 0 {
 		return Username{}, errors.New("username can not be empty")
 	}
 
-	if len(username) > 20 {
+	if len(username) > MAX_USER_NAME {
 		return Username{}, errors.New("username must be at most 20 characters")
 	}
 
