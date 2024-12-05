@@ -9,7 +9,7 @@ type Username struct {
 func NewUsername(username string) (Username, error) {
 	MAX_USER_NAME := 20
 	if len(username) == 0 {
-		return Username{}, errors.New("username can not be empty")
+		return Username{}, errors.New("username cannot be empty")
 	}
 
 	if len(username) > MAX_USER_NAME {

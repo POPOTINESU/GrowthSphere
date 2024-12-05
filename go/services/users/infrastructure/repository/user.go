@@ -28,8 +28,8 @@ func (r *UserRepository) Create(ctx context.Context, user *entity.User) (uuid.UU
 		SetUpdatedAt(user.UpdatedAt()).Save(ctx)
 
 	if err != nil {
-		fmt.Println("can not create user:", err)
-		return uuid.Nil, errors.New("can not create user")
+		fmt.Println("cannot create user:", err)
+		return uuid.Nil, errors.New("cannot create user")
 	}
 
 	return createdUser.ID, nil

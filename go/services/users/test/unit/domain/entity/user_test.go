@@ -28,14 +28,14 @@ func TestNewUser(t *testing.T) {
 			username:     "",
 			accountName:  "valid_account",
 			expectErr:    true,
-			expectErrMsg: "username can not be empty",
+			expectErrMsg: "username cannot be empty",
 		},
 		{
 			name:         "Negative: invalid account name",
 			username:     "valid_user",
 			accountName:  "",
 			expectErr:    true,
-			expectErrMsg: "account name can not be empty",
+			expectErrMsg: "account name cannot be empty",
 		},
 	}
 
