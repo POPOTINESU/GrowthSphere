@@ -22,7 +22,7 @@ func NewUserRepository(client *ent.Client) repository.IUserRepository {
 func (r *UserRepository) Create(ctx context.Context, user *entity.User) (uuid.UUID, error) {
 	createdUser, err := r.client.User.
 		Create().
-		SetID(user.UserId()).
+		SetID(user.UserID()).
 		SetAccountName(user.AccountName().String()).
 		SetUsername(user.Username().String()).
 		SetUpdatedAt(user.UpdatedAt()).Save(ctx)

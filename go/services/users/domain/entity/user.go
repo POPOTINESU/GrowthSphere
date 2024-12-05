@@ -40,8 +40,8 @@ func NewUser(username string, accountName string) (*User, error) {
 	}, nil
 }
 
-// UserId returns the unique identifier of the user.
-func (u *User) UserId() uuid.UUID {
+// UserID returns the unique identifier of the user.
+func (u *User) UserID() uuid.UUID {
 	return u.userID
 }
 

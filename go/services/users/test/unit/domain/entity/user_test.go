@@ -49,7 +49,7 @@ func TestNewUser(t *testing.T) {
 			} else {
 				assert.NoError(t, err)
 				assert.NotNil(t, user, "user should not be nil")
-				assert.NotNil(t, user.UserId(), "userID should not be nil")
+				assert.NotNil(t, user.UserID(), "userID should not be nil")
 				assert.Equal(t, tt.username, user.Username().String(), "username should match")
 				assert.Equal(t, tt.accountName, user.AccountName().String(), "accountName should match")
 				assert.WithinDuration(t, time.Now(), user.UpdatedAt(), time.Second, "updatedAt should be set to current time")
