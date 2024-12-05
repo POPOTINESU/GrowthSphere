@@ -1,77 +1,34 @@
 @startuml
 package entity {
-    entity User {
+    struct User {
         + userId : UUID v7 (PK)
         --
         * username : string (unique)
-        * account_name : string
-        * updated_at : timestamp
-    }
-
-    entity UserProfile {
-        + profile_id : uuid (PK)
-        --
-        * user_id : uuid (FK)
-        * user_icon_url : string
-        * home_image_url : string
-        * introduction : string
-        * cover_image_url : string
-    }
-
-    User ||--|| UserProfile
-}
-
-package usecase {
-    interface UserUseCase {
-        + CreateUser(user: User, profile: UserProfile)
-    }
-
-    class UserUseCaseImpl {
-        + CreateUser(user: User, profile: UserProfile)
-    }
-}
-
-package service {
-    interface UserService {
-        + createUser(user: User)
-    }
-
-    class UserServiceImpl {
-        + createUser(user: User)
+        * accountName : string
+        * updatedAt : timestamp
     }
 }
 
 package repository {
-    interface UserRepository {
-        + create(user: User) : void
+    interface IUserRepository {
+        Create(ctx context.Context, user *entity.User) (uuid.UUID, error)
     }
-
-    interface UserProfileRepository {
-        + create(profile: UserProfile) : void
-        + findByUserId(userId: UUID) : UserProfile
-    }
-
-    class UserRepositoryImpl {
-        + create(user: User) : void
-    }
-
-    class UserProfileRepositoryImpl {
-        + create(profile: UserProfile) : void
-        + findByUserId(userId: UUID) : UserProfile
+    struct UserRepository {
+        Create(ctx context.Context, user *entity.User) (uuid.UUID, error)
     }
 }
 
-UserUseCaseImpl ..|> UserUseCase
-UserUseCaseImpl --> UserService : Depends on
-UserUseCaseImpl --> UserRepository : Depends on
-UserUseCaseImpl --> UserProfileRepository : Depends on
+package usecase {
+    interface IUserUsecase {
+        Execute(ctx context.Context, username string, accountName string) (uuid.UUID, error)
+    }
+    struct UserUsecase {
+        Execute(ctx context.Context, username string, accountName string) (uuid.UUID, error)
+    }
+}
 
-UserServiceImpl ..|> UserService
-UserServiceImpl --> User : Operates on
-
-UserRepositoryImpl ..|> UserRepository
-UserProfileRepositoryImpl ..|> UserProfileRepository
-
-UserRepository --> User : Persists
-UserProfileRepository --> UserProfile : Persists
+entity.User --o repository.IUserRepository : depends on
+repository.IUserRepository <|.. repository.UserRepository : implements
+repository.IUserRepository --o usecase.IUserUsecase : depends on
+usecase.IUserUsecase <|.. usecase.UserUsecase : implements
 @enduml
