@@ -1,0 +1,76 @@
+@startuml
+package domain {
+    entity UserSecurity {
+        + user_id : uuid (FK → User.userId)
+        --
+        * provider : enum
+        * password_hash : string
+        * password_updated_at : timestamp
+        * last_login_at : timestamp
+        * failed_login_attempts : int
+        * last_failed_login : timestamp
+    }
+}
+
+package usecase {
+    interface AuthUseCase {
+        + LocalLogin(username: string, password: string): (AccessToken, RefreshToken, error)
+    }
+
+    class AuthUseCaseImpl {
+        + LocalLogin(username: string, password: string): (AccessToken, RefreshToken, error)
+    }
+}
+
+package service {
+    interface AuthService {
+        + hashPassword(password: string): (string, error)
+        + verifyPassword(username: string, password: string): (bool, error)
+    }
+
+    interface JWTService {
+        + issueAccessToken(userID: uuid): (AccessToken, error)
+        + issueRefreshToken(userID: uuid): (RefreshToken, error)
+        + reIssueAccessToken(userID: uuid): (AccessToken, error)
+        + verifyToken(token: AccessToken | RefreshToken): (bool, error)
+        + getTokenExpiry(token: AccessToken | RefreshToken): time.Time
+        + extractUserID(token: AccessToken | RefreshToken): uuid
+    }
+
+    class AuthServiceImpl {
+        + hashPassword(password: string): (string, error)
+        + verifyPassword(username: string, password: string): (bool, error)
+    }
+
+    class JWTServiceImpl {
+        + issueAccessToken(userID: uuid): (AccessToken, error)
+        + issueRefreshToken(userID: uuid): (RefreshToken, error)
+        + reIssueAccessToken(userID: uuid): (AccessToken, error)
+        + verifyToken(token: AccessToken | RefreshToken): (bool, error)
+        + getTokenExpiry(token: AccessToken | RefreshToken): time.Time
+        + extractUserID(token: AccessToken | RefreshToken): uuid
+    }
+}
+
+package repository {
+    interface UserSecurityRepository {
+        + create(security: UserSecurity): error
+        + findByUserId(userId: uuid): (UserSecurity, error)
+    }
+
+    class UserSecurityRepositoryImpl {
+        + create(security: UserSecurity): error
+        + findByUserId(userId: uuid): (UserSecurity, error)
+    }
+}
+
+AuthUseCaseImpl ..|> AuthUseCase
+AuthUseCaseImpl --> AuthService : Depends on
+AuthUseCaseImpl --> JWTService : Depends on
+AuthUseCaseImpl --> UserSecurityRepository : Depends on
+
+AuthServiceImpl ..|> AuthService
+JWTServiceImpl ..|> JWTService
+
+UserSecurityRepositoryImpl ..|> UserSecurityRepository
+@enduml
