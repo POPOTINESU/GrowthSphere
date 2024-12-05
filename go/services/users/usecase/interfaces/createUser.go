@@ -6,7 +6,7 @@ import (
 	"github.com/google/uuid"
 )
 
-// CreateUserUsecase defines the interface for creating a user.
-type CreateUserUsecase interface {
+// ICreateUserUsecase defines the interface for creating a user.
+type ICreateUserUsecase interface {
 	Execute(ctx context.Context, username string, accountName string) (uuid.UUID, error)
 }

@@ -12,7 +12,7 @@ type CreateUserUsecase struct {
 	userRepo repository.IUserRepository
 }
 
-// NewCreateUserUsecase creates a new instance of CreateUserUsecase
+// NewCreateUserUsecase creates a new instance of ICreateUserUsecase
 func NewCreateUserUsecase(userRepo repository.IUserRepository) *CreateUserUsecase {
 	return &CreateUserUsecase{
 		userRepo: userRepo,

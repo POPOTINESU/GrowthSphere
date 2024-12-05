@@ -17,32 +17,32 @@ import (
 	gomock "go.uber.org/mock/gomock"
 )
 
-// MockCreateUserUsecase is a mock of CreateUserUsecase interface.
-type MockCreateUserUsecase struct {
+// MockICreateUserUsecase is a mock of ICreateUserUsecase interface.
+type MockICreateUserUsecase struct {
 	ctrl     *gomock.Controller
-	recorder *MockCreateUserUsecaseMockRecorder
+	recorder *MockICreateUserUsecaseMockRecorder
 	isgomock struct{}
 }
 
-// MockCreateUserUsecaseMockRecorder is the mock recorder for MockCreateUserUsecase.
-type MockCreateUserUsecaseMockRecorder struct {
-	mock *MockCreateUserUsecase
+// MockICreateUserUsecaseMockRecorder is the mock recorder for MockICreateUserUsecase.
+type MockICreateUserUsecaseMockRecorder struct {
+	mock *MockICreateUserUsecase
 }
 
-// NewMockCreateUserUsecase creates a new mock instance.
-func NewMockCreateUserUsecase(ctrl *gomock.Controller) *MockCreateUserUsecase {
-	mock := &MockCreateUserUsecase{ctrl: ctrl}
-	mock.recorder = &MockCreateUserUsecaseMockRecorder{mock}
+// NewMockICreateUserUsecase creates a new mock instance.
+func NewMockICreateUserUsecase(ctrl *gomock.Controller) *MockICreateUserUsecase {
+	mock := &MockICreateUserUsecase{ctrl: ctrl}
+	mock.recorder = &MockICreateUserUsecaseMockRecorder{mock}
 	return mock
 }
 
 // EXPECT returns an object that allows the caller to indicate expected use.
-func (m *MockCreateUserUsecase) EXPECT() *MockCreateUserUsecaseMockRecorder {
+func (m *MockICreateUserUsecase) EXPECT() *MockICreateUserUsecaseMockRecorder {
 	return m.recorder
 }
 
 // Execute mocks base method.
-func (m *MockCreateUserUsecase) Execute(ctx context.Context, username, accountName string) (uuid.UUID, error) {
+func (m *MockICreateUserUsecase) Execute(ctx context.Context, username, accountName string) (uuid.UUID, error) {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "Execute", ctx, username, accountName)
 	ret0, _ := ret[0].(uuid.UUID)
@@ -51,7 +51,7 @@ func (m *MockCreateUserUsecase) Execute(ctx context.Context, username, accountNa
 }
 
 // Execute indicates an expected call of Execute.
-func (mr *MockCreateUserUsecaseMockRecorder) Execute(ctx, username, accountName any) *gomock.Call {
+func (mr *MockICreateUserUsecaseMockRecorder) Execute(ctx, username, accountName any) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Execute", reflect.TypeOf((*MockCreateUserUsecase)(nil).Execute), ctx, username, accountName)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Execute", reflect.TypeOf((*MockICreateUserUsecase)(nil).Execute), ctx, username, accountName)
 }
