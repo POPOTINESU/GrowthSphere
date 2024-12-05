@@ -3,8 +3,10 @@ package repository
 import (
 	"GROWTHSPHERE/services/users/domain/entity"
 	"context"
+
+	"github.com/google/uuid"
 )
 
 type IUserRepository interface {
-	CreateUser(ctx context.Context, user entity.User) (*entity.User, error)
+	Create(ctx context.Context, user *entity.User) (uuid.UUID, error)
 }
