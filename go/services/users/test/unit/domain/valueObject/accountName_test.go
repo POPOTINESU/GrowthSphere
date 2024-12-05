@@ -27,7 +27,7 @@ func TestNewAccountName(t *testing.T) {
 			accountName:  "",
 			want:         "",
 			expectErr:    true,
-			expectErrMsg: "account name can not be empty",
+			expectErrMsg: "account name cannot be empty",
 		},
 		{
 			name:         "Negative: username exceeds max length",

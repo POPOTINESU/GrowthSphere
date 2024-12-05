@@ -18,6 +18,7 @@ func TestCreateUser(t *testing.T) {
 	err := client.Schema.Create(context.Background())
 	assert.NoError(t, err, "failed to run migrations")
 
+	db.ResetDatabase(context.Background(), client)
 	userRepo := userRepository.NewUserRepository(client)
 
 	tests := []struct {
@@ -39,14 +40,14 @@ func TestCreateUser(t *testing.T) {
 			username:     "",
 			accountName:  "valid_account",
 			expectErr:    true,
-			expectErrMsg: "username can not be empty",
+			expectErrMsg: "username cannot be empty",
 		},
 		{
 			name:         "Negative: missing account name",
 			username:     "valid_user",
 			accountName:  "",
 			expectErr:    true,
-			expectErrMsg: "account name can not be empty",
+			expectErrMsg: "account name cannot be empty",
 		},
 	}
 

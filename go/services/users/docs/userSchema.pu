@@ -1,4 +1,4 @@
-@startuml
+@startuml er diagram
 
 entity "user" as User {
     + user_id : uuid v7 (PK)
@@ -7,17 +7,4 @@ entity "user" as User {
     * account_name : string
     * updated_at : timestamp
 }
-
-entity "user_profile" as UserProfile {
-    + profile_id : uuid (PK)
-    --
-    * user_id : uuid (FK)
-    * user_icon_url : string
-    * home_image_url : string
-    * introduction : string
-    * cover_image_url : string
-}
-
-
-User ||--|| UserProfile
 @enduml

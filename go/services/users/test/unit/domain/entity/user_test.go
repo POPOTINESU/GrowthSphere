@@ -28,14 +28,14 @@ func TestNewUser(t *testing.T) {
 			username:     "",
 			accountName:  "valid_account",
 			expectErr:    true,
-			expectErrMsg: "username can not be empty",
+			expectErrMsg: "username cannot be empty",
 		},
 		{
 			name:         "Negative: invalid account name",
 			username:     "valid_user",
 			accountName:  "",
 			expectErr:    true,
-			expectErrMsg: "account name can not be empty",
+			expectErrMsg: "account name cannot be empty",
 		},
 	}
 
@@ -49,7 +49,7 @@ func TestNewUser(t *testing.T) {
 			} else {
 				assert.NoError(t, err)
 				assert.NotNil(t, user, "user should not be nil")
-				assert.NotNil(t, user.UserId(), "userID should not be nil")
+				assert.NotNil(t, user.UserID(), "userID should not be nil")
 				assert.Equal(t, tt.username, user.Username().String(), "username should match")
 				assert.Equal(t, tt.accountName, user.AccountName().String(), "accountName should match")
 				assert.WithinDuration(t, time.Now(), user.UpdatedAt(), time.Second, "updatedAt should be set to current time")

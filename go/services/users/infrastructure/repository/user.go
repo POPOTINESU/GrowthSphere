@@ -22,14 +22,14 @@ func NewUserRepository(client *ent.Client) repository.IUserRepository {
 func (r *UserRepository) Create(ctx context.Context, user *entity.User) (uuid.UUID, error) {
 	createdUser, err := r.client.User.
 		Create().
-		SetID(user.UserId()).
+		SetID(user.UserID()).
 		SetAccountName(user.AccountName().String()).
 		SetUsername(user.Username().String()).
 		SetUpdatedAt(user.UpdatedAt()).Save(ctx)
 
 	if err != nil {
-		fmt.Println("can not create user:", err)
-		return uuid.Nil, errors.New("can not create user")
+		fmt.Println("cannot create user:", err)
+		return uuid.Nil, errors.New("cannot create user")
 	}
 
 	return createdUser.ID, nil
