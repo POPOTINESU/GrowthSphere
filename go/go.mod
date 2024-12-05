@@ -7,6 +7,8 @@ require (
 	go.uber.org/mock v0.5.0
 )
 
+require github.com/lib/pq v1.10.9 // indirect
+
 require (
 	ariga.io/atlas v0.19.1-0.20240203083654-5948b60a8e43 // indirect
 	entgo.io/ent v0.14.1

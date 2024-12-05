@@ -15,6 +15,8 @@ import (
 
 func TestCreateUser(t *testing.T) {
 	client := db.CreateTestClient()
+	err := client.Schema.Create(context.Background())
+	assert.NoError(t, err, "failed to run migrations")
 
 	userRepo := userRepository.NewUserRepository(client)
 

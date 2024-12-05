@@ -16,11 +16,11 @@ func CreateTestClient() *ent.Client {
 }
 
 func readTestDatabaseEnv() string {
-	host := config.GetEnv("TEST_DB_HOST")
-	port := config.GetEnv("TEST_DB_PORT")
-	user := config.GetEnv("TEST_DB_USER")
-	dbname := config.GetEnv("TEST_DB_NAME")
-	password := config.GetEnv("TEST_DB_PASSWORD")
+	host := config.GetEnv("POSTGRES_HOST")
+	port := config.GetEnv("POSTGRES_DB")
+	user := config.GetEnv("POSTGRES_USER")
+	dbname := config.GetEnv("POSTGRES_DB")
+	password := config.GetEnv("POSTGRES_PASSWORD")
 
 	return fmt.Sprintf(
 		"host=%s port=%s user=%s dbname=%s password=%s sslmode=disable",
