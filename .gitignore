@@ -21,8 +21,18 @@
 go.work
 go.work.sum
 
+# database 
+data
+
+# tmpfile
+tmp
+
+# build file
+main
+
 # env file
 .env
+.env.dev
 
 # typescript
 node_modules

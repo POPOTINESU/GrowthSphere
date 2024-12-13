@@ -1,0 +1,10 @@
+linters:
+  enable:
+    - gofmt
+    - gosec
+    - unused
+    - mnd
+    - staticcheck
+run:
+  timeout: 5m
+  tests: true 
