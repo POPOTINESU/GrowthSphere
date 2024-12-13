@@ -1,7 +1,11 @@
 package main
 
-import "fmt"
+import (
+	"GROWTHSPHERE/pkg/logger"
+	"log/slog"
+)
 
 func main() {
-	fmt.Println("Hello GROWTH SPHERE")
+	logger.InitializeLogger(slog.LevelInfo)
+	logger.Info("Start GROWTHSPHERE")
 }

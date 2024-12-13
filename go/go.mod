@@ -1,3 +1,3 @@
-module GROWTHSPHRE
+module GROWTHSPHERE
 
 go 1.23.3
