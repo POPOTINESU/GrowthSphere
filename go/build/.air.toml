@@ -4,8 +4,8 @@ tmp_dir = "tmp"
 
 [build]
   args_bin = []
-  bin = "./cmd/growthSphere/main"
-  cmd = "go build -o ./cmd/growthSphere/main ./cmd/growthSphere/main.go"
+  bin = "./cmd/growth_sphere/main"
+  cmd = "go build -o ./cmd/growth_sphere/main ./cmd/growth_sphere/main.go"
   delay = 1000
   exclude_dir = ["assets", "tmp", "vendor", "testdata"]
   exclude_file = []
