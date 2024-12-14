@@ -13,7 +13,7 @@ var (
 
 // InitializeLogger initializes the global logger with the given level.
 func InitializeLogger(logLevel slog.Level) {
-	once.Do(func() { // 保証: 初期化は一度だけ
+	once.Do(func() {
 		levelVar := new(slog.LevelVar)
 		levelVar.Set(logLevel)
 
