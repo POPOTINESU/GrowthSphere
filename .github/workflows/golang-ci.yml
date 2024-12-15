@@ -3,10 +3,7 @@ name: golangci-lint
 on:
   push:
     branches:
-      - "**"
-    paths:
-      - "/services/uses/**/*.go"
-      - "/services/auth/**/*.go"
+      - "main"
 jobs:
   golangci:
     name: lint
