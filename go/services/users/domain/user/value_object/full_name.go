@@ -30,7 +30,6 @@ func NewFullName(firstName string, lastName string) (FullName, error) {
 	return FullName{firstName: firstName, lastName: lastName}, nil
 }
 
-
 func (fn FullName) String() string {
 	return fn.firstName + " " + fn.lastName
 }
