@@ -16,6 +16,7 @@ jobs:
           go-version: stable
       - name: Run unit tests
         run: |
-          # 動的に test フォルダを除外
+          # excused test folder
           EXCLUDE_TEST_DIRS=$(find services -type d -name test -prune | tr '\n' ',' | sed 's/,$//')
+          cd go
           go test $(go list ./... | grep -vE "$EXCLUDE_TEST_DIRS") -tags=unit
