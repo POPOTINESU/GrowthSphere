@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - "services/uses/**/*.go"
+      - "services/auth/**/*.go"
 
 jobs:
   golangci:
