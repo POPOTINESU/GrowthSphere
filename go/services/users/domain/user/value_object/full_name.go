@@ -2,6 +2,7 @@ package valueobject
 
 import (
 	"GROWTHSPHERE/pkg/validation"
+	"strings"
 )
 
 type FullName struct {
@@ -17,6 +18,10 @@ const (
 
 // NewFullName is a factory function to create new FullName value object.
 func NewFullName(firstName string, lastName string) (FullName, error) {
+
+	// trim spaces from first name and last name
+	firstName = strings.TrimSpace(firstName)
+	lastName = strings.TrimSpace(lastName)
 
 	// first name validate
 	if err := validation.IsInRange(len(firstName), NameMinLength, NameMaxLength, "first name"); err != nil {
