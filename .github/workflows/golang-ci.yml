@@ -3,9 +3,8 @@ name: golangci-lint
 on:
   push:
     paths:
-      - "services/uses/**/*.go"
-      - "services/auth/**/*.go"
-
+      - "/services/uses/**/*.go"
+      - "/services/auth/**/*.go"
 jobs:
   golangci:
     name: lint
