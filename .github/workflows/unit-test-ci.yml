@@ -1,0 +1,22 @@
+name: unit tests
+
+on:
+  push:
+    paths:
+      - "services/**"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: stable
+      - name: Run unit tests
+        run: |
+          # excused test folder
+          EXCLUDE_TEST_DIRS=$(find services -type d -name test -prune | tr '\n' ',' | sed 's/,$//')
+          cd go
+          go test $(go list ./... | grep -vE "$EXCLUDE_TEST_DIRS") -tags=unit
