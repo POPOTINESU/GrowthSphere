@@ -10,6 +10,7 @@ type FullName struct {
 }
 
 const (
+	// first name and last name range
 	NameMinLength = 1
 	NameMaxLength = 40
 )
